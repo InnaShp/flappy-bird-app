@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flappy Bird</title>
+  <link
+    rel="shortcut icon"
+    href="images/bird_icon.png"
+    type="image/x-icon"
+  />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
   <header data-include="partials/header.partial.html"></header>
   <main>
     <section data-include="partials/main-menu.partial.html"></section>
-    <section data-include="partials/game.partial.html"></section>
     <section data-include="partials/settings.partial.html"></section>
     <section data-include="partials/highscores.partial.html"></section>
     <section data-include="partials/help.partial.html"></section>
@@ -17,5 +22,6 @@
   <footer data-include="partials/footer.partial.html"></footer>
 
   <script type="module" src="js/index.js"></script>
+  <script src="https://unpkg.com/html-data-include@3.3.3/html-data-include.js"></script>
 </body>
 </html>
