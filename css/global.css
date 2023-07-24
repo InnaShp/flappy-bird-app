@@ -10,7 +10,9 @@
 :root {
   --main-color: #333;
   --secondary-color: #61616169;
+  --off-screen-color: #a2cad6;
   --light-color: #ffffff;
+  --burger-icon-color: #ffffffad;
   --secondary-font-family: 'Tektur', sans-serif;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;

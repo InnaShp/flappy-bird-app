@@ -1,5 +1,11 @@
-.header__nav {
+.header {
+  position:fixed;
+  z-index: 200;
+  width: 100vw;
   background-color: var(--secondary-color);
+}
+
+.header__nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,7 +55,7 @@
 .header__ham-bar {
   width: 70%;
   height: 2px;
-  background-color: var(--main-color);
+  background-color: var(--burger-icon-color);
   border-radius: 25px;
   position: absolute;
   top: 50%;
@@ -91,7 +97,7 @@
 
 .header__off-screen-menu.active {
   right: 0;
-  background-color: var(--secondary-color);
+  background-color: var(--off-screen-color);
 }
 
 .header__off-screen-menu.active .header__logo-container {
