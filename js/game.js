@@ -15,31 +15,34 @@ const gameData = {
   moveSpeed: 3,
 }
 
-gameData.bird.stopFlying();
-gameData.message.classList.add('messageStyle');
-document.addEventListener('keydown', (e) => {
-  if (e.key == 'Enter' && gameData.gameStatus != 'Play') {
-    document.querySelectorAll('.pipeSprite').forEach((e) => {
-      e.remove();
-    });
-    gameData.bird.startFlying();
-    gameData.gameStatus = 'Play';
-    gameData.message.innerHTML = '';
-    gameData.scoreTitle.innerHTML = 'Score : ';
-    gameData.scoreValue.innerHTML = '0';
-    gameData.message.classList.remove('messageStyle');
-    play();
-  }
-});
-
-function play() {
-  function gameLoop() {
-    if (gameData.gameStatus == 'Play') {
-      checkBirdPipeCollision(gameData);
-      flyBird(gameData);
-      updatePipes(gameData);
-      requestAnimationFrame(gameLoop);
+function startGame() {
+  gameData.bird.stopFlying();
+  gameData.message.classList.add('messageStyle');
+  document.addEventListener('keydown', (e) => {
+    if (e.key == 'Enter' && gameData.gameStatus != 'Play') {
+      document.querySelectorAll('.pipeSprite').forEach((e) => {
+        e.remove();
+      });
+      gameData.bird.startFlying();
+      gameData.gameStatus = 'Play';
+      gameData.message.innerHTML = '';
+      gameData.scoreTitle.innerHTML = 'Score : ';
+      gameData.scoreValue.innerHTML = '0';
+      gameData.message.classList.remove('messageStyle');
+      play();
     }
+  });
+
+  function play() {
+    function gameLoop() {
+      if (gameData.gameStatus == 'Play') {
+        checkBirdPipeCollision(gameData);
+        flyBird(gameData);
+        updatePipes(gameData);
+        requestAnimationFrame(gameLoop);
+      }
+    }
+    gameLoop();
   }
-  gameLoop();
 }
+startGame();
