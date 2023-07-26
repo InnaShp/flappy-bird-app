@@ -4,6 +4,8 @@ import { checkBirdPipeCollision } from './move.js';
 import { flyBird } from './flyBird.js';
 import { updatePipes } from './updatePipes.js';
 
+const header = document.querySelector('.header');
+
 const gameData = {
   bird: new Bird(),
   pipe: new Pipe(),
@@ -13,11 +15,16 @@ const gameData = {
   message: document.querySelector('.message'),
   gameStatus: 'Start',
   moveSpeed: 3,
+  soundDie: new Audio('sounds/die.mp3'),
+  soundPoint: new Audio('sounds/point.mp3'),
+  soundFlap: new Audio('sounds/flap.mp3'),
+  soundHitPipe: new Audio('sounds/hit-pipe.mp3'),
 }
 
 function startGame() {
   gameData.bird.stopFlying();
   gameData.message.classList.add('messageStyle');
+  header.classList.toggle('fixed');
   document.addEventListener('keydown', (e) => {
     if (e.key == 'Enter' && gameData.gameStatus != 'Play') {
       document.querySelectorAll('.pipeSprite').forEach((e) => {

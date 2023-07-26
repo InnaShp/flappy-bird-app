@@ -1,8 +1,11 @@
 .header {
-  position:fixed;
-  z-index: 200;
   width: 100vw;
   background-color: var(--secondary-color);
+}
+
+.header.fixed {
+  position: fixed;
+  z-index: 200;
 }
 
 .header__nav {
@@ -23,7 +26,7 @@
   font-size: 18px;
   text-shadow: -1px 0 var(--main-color), 0 1px var(--main-color), 1px 0 var(--main-color), 0 -1px var(--main-color);
   font-weight: 600;
-} 
+}
 
 .header__nav-link:hover {
   text-decoration: underline;
