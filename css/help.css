@@ -1,6 +1,32 @@
-body {
-  background-image: url('../images/menu-background.png');
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+.help {
+  background-color: rgba(255, 255, 255, 0.797);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 800px;
+  margin: 70px auto;
+  padding: 60px;
+  border-radius: 30px;
+  color: rgba(52, 51, 51, 0.793);
+}
+
+.help__header {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-family: var(--secondary-font-family);
+  text-shadow: 0 0 rgb(0, 0, 0);
+  color: rgb(75, 74, 74);
+}
+
+.help__rules-list {
+  font-size: 15px;
+}
+
+.help__rules-item {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.help__rules-item-title {
+  font-weight: bold;
+  font-family: var(--secondary-font-family);
 }

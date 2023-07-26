@@ -6,4 +6,5 @@ document.addEventListener("partialsLoaded", () => {
   import('./move.js');
   import('./flyBird.js');
   import('./updatePipes.js');
+  import('./user.js');
 });
