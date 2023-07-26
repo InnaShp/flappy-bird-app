@@ -1,3 +1,4 @@
+let isGameOver = false;
 export function checkBirdPipeCollision(data) {
   const pipeSprite = document.querySelectorAll('.pipeSprite');
   pipeSprite.forEach((element) => {
@@ -25,5 +26,24 @@ export function checkBirdPipeCollision(data) {
         element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px';
       }
     }
+    if (data.gameStatus === 'End' && !isGameOver) {
+      handleGameOver(data);
+    }
+    
   });
+}
+
+function handleGameOver(data) {
+  if (!data.isGameOver) {
+    data.currentScore = parseInt(data.scoreValue.innerHTML);
+    data.user.setScore(data.currentScore);
+
+    const bestScore = data.user.getBestScore();
+    const bestScoreWithin24Hours = data.user.getBestScoreWithin24Hours();
+
+    console.log('Найкращий результат усіх часів:', bestScore);
+    console.log('Найкращий результат за останні 24 години:', bestScoreWithin24Hours);
+
+    isGameOver = true;
+  }
 }
