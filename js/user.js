@@ -22,23 +22,19 @@ class User {
     );
   }
 
-  getBestScore() {
-    const scoresWithScore = this.allTimeScores.filter((record) => record.hasOwnProperty('score'));
-    if (scoresWithScore.length === 0) {
-      return 0;
-    }
-    return Math.max(...scoresWithScore.map((record) => record.score));
+  getTop10Scores() {
+    const scoresWithUsername = this.allTimeScores.filter((record) => record.hasOwnProperty('score'));
+    const sortedScores = scoresWithUsername.sort((a, b) => b.score - a.score);
+    console.log(sortedScores.slice(0, 10));
+    return sortedScores.slice(0, 10);
   }
-
-  getBestScoreWithin24Hours() {
-    const scoresWithScoreWithin24Hours = this.scoresWithin24Hours.filter((record) => record.hasOwnProperty('score'));
-    if (scoresWithScoreWithin24Hours.length === 0) {
-      return 0;
-    }
-    return Math.max(...scoresWithScoreWithin24Hours.map((record) => record.score));
+  
+  getTop10ScoresWithin24Hours() {
+    const scoresWithUsernameWithin24Hours = this.scoresWithin24Hours.filter((record) => record.hasOwnProperty('score'));
+    const sortedScoresWithin24Hours = scoresWithUsernameWithin24Hours.sort((a, b) => b.score - a.score);
+    return sortedScoresWithin24Hours.slice(0, 10);
   }
-
-
+  
   saveToLocalStorage() {
     const data = {
       allTimeScores: this.allTimeScores,
@@ -46,7 +42,7 @@ class User {
     };
     localStorage.setItem(this.name, JSON.stringify(data));
   }
-
+  
   loadFromLocalStorage() {
     const data = localStorage.getItem(this.name);
     if (data) {

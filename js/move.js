@@ -33,17 +33,22 @@ export function checkBirdPipeCollision(data) {
   });
 }
 
+let usersName = document.querySelectorAll('.table__user-name');
+let usersRecord = document.querySelectorAll('.table__user-record');
+
 function handleGameOver(data) {
-  if (!data.isGameOver) {
+  if (!data.isGameOver && data.scoreValue.innerHTML !== 0) {
     data.currentScore = parseInt(data.scoreValue.innerHTML);
     data.user.setScore(data.currentScore);
 
-    const bestScore = data.user.getBestScore();
-    const bestScoreWithin24Hours = data.user.getBestScoreWithin24Hours();
+    const bestScore = data.user.getTop10Scores();
+    //const bestScoreWithin24Hours = data.user.getBestScoreWithin24Hours();
 
-    console.log('Найкращий результат усіх часів:', bestScore);
-    console.log('Найкращий результат за останні 24 години:', bestScoreWithin24Hours);
-
+    console.log(bestScore);
+    //console.log('Найкращий результат за останні 24 години:', bestScoreWithin24Hours);
+    console.log(data.user.allTimeScores);
+    console.log(data.user.scoresWithin24Hours);
+    console.log(data.user.name);
     isGameOver = true;
   }
 }

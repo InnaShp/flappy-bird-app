@@ -1,0 +1,55 @@
+.highscores {
+  background-color: rgba(255, 255, 255, 0.797);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 800px;
+  margin: 70px auto;
+  padding: 60px;
+  border-radius: 30px;
+  color: rgba(52, 51, 51, 0.862);
+  font-family: var(--secondary-font-family);
+  text-align: center;
+}
+
+.highscores__header {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 30px;
+  text-shadow: 0 0 rgb(0, 0, 0);
+  color: rgb(75, 74, 74);
+}
+
+.highscores__scores-table .table__header {
+  text-shadow: 0 0 rgb(0, 0, 0);
+  color: rgb(73, 156, 224);
+}
+
+.highscores__scores-table .table__item {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 5px;
+  grid-template-columns: 70% 30%;
+  margin: 5px 0;
+}
+
+.highscores__scores-table .table__user-name {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.highscores__scores-table .table__item:nth-child(even) .table__user-name, 
+.highscores__scores-table .table__item:nth-child(even) .table__user-record {
+  background-color: rgb(255, 255, 255);
+} 
+
+.highscores__scores-table .table__item:nth-child(odd) .table__user-name, 
+.highscores__scores-table .table__item:nth-child(odd) .table__user-record {
+  background-color: rgba(205, 204, 204, 0.736);
+  
+} 
+
+.highscores__scores-table .table__user-record {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+}
