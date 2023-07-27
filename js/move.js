@@ -1,4 +1,5 @@
 let isGameOver = false;
+
 export function checkBirdPipeCollision(data) {
   const pipeSprite = document.querySelectorAll('.pipeSprite');
   pipeSprite.forEach((element) => {
@@ -12,7 +13,7 @@ export function checkBirdPipeCollision(data) {
         && birdProps.top < pipeSpriteProps.top + pipeSpriteProps.height
         && birdProps.top + birdProps.height > pipeSpriteProps.top) {
         data.soundHitPipe.play();
-        data.gameStatus = 'End';   
+        data.gameStatus = 'End';
         data.message.innerHTML = '<img src="../images/game-over.png" alt="Game over">';
         data.bird.stopFlying();
         return;
@@ -26,29 +27,40 @@ export function checkBirdPipeCollision(data) {
         element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px';
       }
     }
-    if (data.gameStatus === 'End' && !isGameOver) {
-      handleGameOver(data);
-    }
-    
+    if (data.gameStatus === 'End' && !isGameOver) handleGameOver(data);
   });
 }
 
-let usersName = document.querySelectorAll('.table__user-name');
-let usersRecord = document.querySelectorAll('.table__user-record');
+// function handleGameOver(data) {
+//   if (!data.isGameOver && data.scoreValue.innerHTML !== '0') {
+//     //data.currentScore = parseInt(data.scoreValue.innerHTML);
+//     data.currentScore = 11;
+//     // Отримуємо поточний найкращий рекорд користувача
+//     const userBestScore = data.user.getTopPlayers().find(userRecord => userRecord.name === data.user.name);
+
+//     // Перевіряємо, чи поточний рахунок більший за найкращий рекорд користувача
+//     if (!userBestScore || data.currentScore > userBestScore.score) {
+//       data.user.setScore(data.currentScore);
+      
+//       // Оновлюємо список рекордів у localStorage, тільки якщо був побитий рекорд
+//       const topScores = data.user.getTopPlayers();
+//       localStorage.setItem('topScores', JSON.stringify(topScores));
+//     }
+
+//     isGameOver = true;
+//   }
+// }
 
 function handleGameOver(data) {
-  if (!data.isGameOver && data.scoreValue.innerHTML !== 0) {
+  if (!data.isGameOver && data.scoreValue.innerHTML !== '0') {
     data.currentScore = parseInt(data.scoreValue.innerHTML);
     data.user.setScore(data.currentScore);
 
-    const bestScore = data.user.getTop10Scores();
-    //const bestScoreWithin24Hours = data.user.getBestScoreWithin24Hours();
+    // Оновлюємо список рекордів у localStorage
+    const topScores = data.user.getTopPlayers();
+    localStorage.setItem('topScores', JSON.stringify(topScores));
 
-    console.log(bestScore);
-    //console.log('Найкращий результат за останні 24 години:', bestScoreWithin24Hours);
-    console.log(data.user.allTimeScores);
-    console.log(data.user.scoresWithin24Hours);
-    console.log(data.user.name);
     isGameOver = true;
   }
 }
+

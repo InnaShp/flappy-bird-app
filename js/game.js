@@ -10,7 +10,7 @@ const header = document.querySelector('.header');
 const gameData = {
   bird: new Bird(),
   pipe: new Pipe(),
-  user: new User('Inna'),
+  user: new User('zlata'),
   background: document.querySelector('.background').getBoundingClientRect(),
   scoreValue: document.querySelector('.score-val'),
   scoreTitle: document.querySelector('.score-title'),
@@ -23,9 +23,7 @@ const gameData = {
   soundFlap: new Audio('sounds/flap.mp3'),
   soundHitPipe: new Audio('sounds/hit-pipe.mp3'),
 };
-
 gameData.user.loadFromLocalStorage();
-
 
 function startGame() {
   gameData.bird.stopFlying();
