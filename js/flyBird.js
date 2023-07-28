@@ -1,3 +1,5 @@
+import { handleGameOver } from './move.js';
+
 export function flyBird(data) {
   data.bird.updateBirdPosition();
   function handleKeyEvent(e) {
@@ -13,6 +15,7 @@ export function flyBird(data) {
   }
   document.removeEventListener('keydown', handleKeyEvent);
   document.removeEventListener('keyup', handleKeyEvent);
+
   if (data.gameStatus === 'Play') {
     document.addEventListener('keydown', handleKeyEvent);
     document.addEventListener('keyup', handleKeyEvent);
@@ -26,20 +29,7 @@ export function flyBird(data) {
     restart.addEventListener('click', (e) => {
       e.preventDefault();
       window.location.reload();
-    }); 
+    });
   }
-  if (data.gameStatus === 'End' && data.scoreValue.innerHTML > 0) {
-    data.currentScore = parseInt(data.scoreValue.innerHTML);
-    data.user.setScore(data.currentScore); 
-  }
+  if (data.gameStatus === 'End' && data.scoreValue.innerHTML > 0 && data.isCollision === false) handleGameOver(data);
 }
-
-
-
-
-
-
-
-
-
-

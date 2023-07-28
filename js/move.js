@@ -16,6 +16,10 @@ export function checkBirdPipeCollision(data) {
         data.gameStatus = 'End';
         data.message.innerHTML = '<img src="../images/game-over.png" alt="Game over">';
         data.bird.stopFlying();
+        if (data.gameStatus === 'End' && !isGameOver) {
+          handleGameOver(data);
+          data.isCollision = true;
+        }
         return;
       } else {
         if (pipeSpriteProps.right < birdProps.left
@@ -27,39 +31,16 @@ export function checkBirdPipeCollision(data) {
         element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px';
       }
     }
-    if (data.gameStatus === 'End' && !isGameOver) handleGameOver(data);
+
   });
 }
 
-// function handleGameOver(data) {
-//   if (!data.isGameOver && data.scoreValue.innerHTML !== '0') {
-//     //data.currentScore = parseInt(data.scoreValue.innerHTML);
-//     data.currentScore = 11;
-//     // Отримуємо поточний найкращий рекорд користувача
-//     const userBestScore = data.user.getTopPlayers().find(userRecord => userRecord.name === data.user.name);
-
-//     // Перевіряємо, чи поточний рахунок більший за найкращий рекорд користувача
-//     if (!userBestScore || data.currentScore > userBestScore.score) {
-//       data.user.setScore(data.currentScore);
-      
-//       // Оновлюємо список рекордів у localStorage, тільки якщо був побитий рекорд
-//       const topScores = data.user.getTopPlayers();
-//       localStorage.setItem('topScores', JSON.stringify(topScores));
-//     }
-
-//     isGameOver = true;
-//   }
-// }
-
-function handleGameOver(data) {
-  if (!data.isGameOver && data.scoreValue.innerHTML !== '0') {
-    data.currentScore = parseInt(data.scoreValue.innerHTML);
+export function handleGameOver(data) {
+  if (!data.isGameOver && data.gameStatus === 'End' && data.scoreValue.innerHTML !== '0') {
+    data.currentScore = data.scoreValue.innerHTML;
     data.user.setScore(data.currentScore);
-
-    // Оновлюємо список рекордів у localStorage
     const topScores = data.user.getTopPlayers();
     localStorage.setItem('topScores', JSON.stringify(topScores));
-
     isGameOver = true;
   }
 }
