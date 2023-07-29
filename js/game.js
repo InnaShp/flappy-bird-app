@@ -9,7 +9,6 @@ const header = document.querySelector('.header');
 const form = document.getElementById('name-form');
 const nameInput = document.querySelector('.user-name-input');
 
-
 const gameData = {
   bird: new Bird(localStorage.selectedBird),
   pipe: new Pipe(),
@@ -44,6 +43,7 @@ function handleStartGame() {
   if (gameData.gameStatus != 'Play') {
     document.querySelectorAll('.pipeSprite').forEach((e) => e.remove());
     gameData.bird.startFlying();
+    gameData.bird.flapWings()
     gameData.gameStatus = 'Play';
     gameData.message.innerHTML = '';
     gameData.scoreTitle.innerHTML = 'Score : ';
@@ -59,3 +59,4 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
   }
 }
+
