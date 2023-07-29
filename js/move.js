@@ -1,4 +1,6 @@
 let isGameOver = false;
+const maxMoveSpeed = 6;
+const minPipeGap = 25; 
 
 export function checkBirdPipeCollision(data) {
   const pipeSprite = document.querySelectorAll('.pipeSprite');
@@ -25,13 +27,20 @@ export function checkBirdPipeCollision(data) {
         if (pipeSpriteProps.right < birdProps.left
           && pipeSpriteProps.right + data.moveSpeed >= birdProps.left
           && element.increaseScore == '1') {
+            if (data.moveSpeed < maxMoveSpeed) {
+              data.moveSpeed += 0.5; 
+            }
+          
+            if (data.pipe.gap > minPipeGap) {
+              data.pipe.gap -= 1; 
+            }
           data.soundPoint.play();
           data.scoreValue.innerHTML = + data.scoreValue.innerHTML + 1;
         }
-        element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px';
+        element.style.left = pipeSpriteProps.left - 3 + 'px';
       }
     }
-
+   
   });
 }
 
