@@ -4,7 +4,7 @@
 
 .settings__title {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   font-size: 30px;
   font-family: var(--secondary-font-family);
   text-shadow: 0 0 rgb(0, 0, 0);
@@ -13,9 +13,10 @@
 
 .settings__birds-list {
   display: grid;
-  grid-template-columns: repeat(3, 30%);
+  grid-template-columns: repeat(3, 250px);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
+  justify-content: center;
 }
 
 .settings__birds-item {
@@ -29,10 +30,6 @@
   justify-content: space-between;
   padding: 20px;
   border-radius: 30px;
-}
-
-.settings__bird-link {
-  
 }
 
 .settings__bird-img {
@@ -58,6 +55,6 @@
 }
 
 .settings__btn.active {
-  background-color: #99B3BE;
-  color: white;
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
 }

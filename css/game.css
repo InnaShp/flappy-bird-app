@@ -42,11 +42,6 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-.score_val {
-	color: gold;
-	font-weight: bold;
-}
-
 .name-form {
 	margin: 0 auto;
 }
@@ -54,10 +49,13 @@
 .message {
 	position: absolute;
 	z-index: 10;
-	top: 40%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
 }
 
 #restart {
@@ -79,7 +77,6 @@
 	color: rgb(84, 109, 248);
 	text-shadow: -2px 0 var(--main-color), 0 2px var(--main-color);
 	font-size: 70px;
-	margin-bottom: 70px;
 }
 
 .user-name-input {
