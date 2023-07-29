@@ -27,22 +27,6 @@
 	border: 5px solid black;
 }
 
-.message {
-	position: absolute;
-	z-index: 10;
-	top: 40%;
-	left: 50%;
-	font-size: 4em;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	text-decoration: none;
-  color: var(--light-color);
-  font-family: var(--secondary-font-family);
-  font-size: 70px;
-  text-shadow: -3px 0 var(--main-color), 0 3px var(--main-color), 3px 0 var(--main-color), 0 -3px var(--main-color);
-  font-weight: 600;
-}
-
 .score {
 	position: fixed;
 	z-index: 10;
@@ -63,11 +47,69 @@
 	font-weight: bold;
 }
 
+.name-form {
+	margin: 0 auto;
+}
+
+.message {
+	position: absolute;
+	z-index: 10;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
 #restart {
+	font-family: var(--accent-font-family);
+	color: rgb(211, 33, 33);
+	text-shadow: -2px 0 black, 0 2px black;
 	text-decoration: none;
-  color: var(--light-color);
-  font-family: var(--secondary-font-family);
-  font-size: 70px;
-  text-shadow: -2px 0 var(--main-color), 0 2px var(--main-color), 2px 0 var(--main-color), 0 -2px var(--main-color);
-  font-weight: 600;
+	font-size: 35px;
+}
+#restart:hover {
+	text-decoration:underline;
+}
+
+.message-title  {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--accent-font-family);
+	color: rgb(84, 109, 248);
+	text-shadow: -2px 0 var(--main-color), 0 2px var(--main-color);
+	font-size: 70px;
+	margin-bottom: 70px;
+}
+
+.user-name-input {
+	width: 300px;
+	height: 50px;
+	border: none;
+	border: 2px solid var(--main-color);
+	border-radius: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	background: none;
+	font-family: var(--accent-font-family);
+	padding: 10px;
+	font-size: 20px;
+	animation: typing 2s steps(21, end),
+		blink-caret .5s step-end infinite alternate;
+}
+
+.user-name-input::placeholder {
+	color: var(--main-color);
+	font-size: 20px;
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+}
+
+@keyframes blink {
+	50% {
+		border-color: transparent
+	}
 }

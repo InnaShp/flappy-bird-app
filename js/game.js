@@ -7,9 +7,11 @@ import { updatePipes } from './updatePipes.js';
 
 const header = document.querySelector('.header');
 const form = document.getElementById('name-form');
-const nameInput = document.querySelector('.user-name');
+const nameInput = document.querySelector('.user-name-input');
+
+
 const gameData = {
-  bird: new Bird(),
+  bird: new Bird(localStorage.selectedBird),
   pipe: new Pipe(),
   user: null,
   isCollision: false,

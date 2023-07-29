@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Tektur:wght@400;500;600;700&display=swap');
-
+@font-face {
+  font-family: 'PixelFont'; 
+  src: url('../fonts/joystix\ monospace.otf') format('truetype'); 
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +17,7 @@
   --light-color: #ffffff;
   --burger-icon-color: #ffffffad;
   --secondary-font-family: 'Tektur', sans-serif;
+  --accent-font-family: 'PixelFont', sans-serif;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
 }
