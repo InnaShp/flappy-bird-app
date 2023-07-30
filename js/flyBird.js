@@ -23,7 +23,7 @@ export function flyBird(data) {
   if (data.bird.rect.top <= 0 || data.bird.rect.bottom >= data.background.bottom) {
     if (data.gameStatus === 'Play') data.soundDie.play();
     data.gameStatus = 'End';
-    data.message.innerHTML = '<img src="../images/game-over.png" alt="Game over"><a href="#" id="restart">Restart</a>';
+    data.message.innerHTML = '<img src="../images/game-over.png" alt="Game over"><a href="#" id="restart">Click to restart</a>';
     data.bird.stopFlying();
     const restart = document.getElementById('restart');
     restart.addEventListener('click', (e) => {

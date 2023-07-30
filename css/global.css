@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Tektur:wght@400;500;600;700&display=swap');
+
 @font-face {
-  font-family: 'PixelFont'; 
-  src: url('../fonts/joystix\ monospace.otf') format('truetype'); 
+  font-family: 'PixelFont';
+  src: url('../fonts/joystix\ monospace.otf') format('truetype');
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -11,13 +13,23 @@
 }
 
 :root {
-  --main-color: #333;
+  --main-color: rgb(75, 74, 74);
   --secondary-color: #61616169;
   --off-screen-color: #a2cad6;
+  --message-title-color: rgb(84, 109, 248);
   --light-color: #ffffff;
+  --table-header-color: rgb(73, 156, 224);
+  --background-color: rgba(255, 255, 255, 0.797);
+  --background-bird-color: rgba(255, 255, 255, 0.342);
+  --pipe-background: radial-gradient(lightgreen 50%, green);
+  --pipe-border-color: black;
   --burger-icon-color: #ffffffad;
+  --restart-message-color: rgb(211, 33, 33);
   --secondary-font-family: 'Tektur', sans-serif;
   --accent-font-family: 'PixelFont', sans-serif;
+  --header-text-shadow: 0 0 rgb(0, 0, 0);
+  --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --table-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
 }

@@ -1,60 +1,116 @@
 .settings {
-  margin: 70px auto;
+  margin: 30px auto;
 }
 
 .settings__title {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 30px;
+  margin: 20px;
+  font-size: 23px;
   font-family: var(--secondary-font-family);
-  text-shadow: 0 0 rgb(0, 0, 0);
-  color: rgb(75, 74, 74);
+  text-shadow: var(--header-text-shadow);
+  color: var(--main-color);
 }
 
 .settings__birds-list {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
   justify-content: center;
 }
 
 .settings__birds-item {
-  background-color: rgba(255, 255, 255, 0.342);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  width: 250px;
-  height: 250px;
+  background-color: var(--background-bird-color);
+  box-shadow: var(--table-shadow);
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px;
   border-radius: 30px;
 }
 
 .settings__bird-img {
-  width: 200px;
+  width: 110px;
 }
 
 .settings__btn {
-  width: 100px;
-  padding: 5px;
+  width: 80px;
+  padding: 3px;
   border-radius: 10px;
   font-family: var(--secondary-font-family);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 12px;
   border: 2px solid var(--main-color);
   cursor: pointer;
   transition: all 200ms ease;
-  background-color: aliceblue;
+  background-color: var(--light-color);
 }
 
 .settings__btn:hover {
   background-color: var(--main-color);
-  color: rgb(255, 255, 255);
+  color: var(--light-color);
 }
 
 .settings__btn.active {
   background-color: var(--main-color);
-  color: rgb(255, 255, 255);
+  color: var(--light-color);
+}
+
+@media (min-width: 700px) {
+  .settings__birds-list {
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .settings__birds-item {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+  }
+
+  .settings__bird-img {
+    width: 140px;
+  }
+
+  .settings__btn {
+    width: 100px;
+    padding: 4px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .settings {
+    margin: 70px auto;
+  }
+
+  .settings__title {
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+
+  .settings__birds-list {
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .settings__birds-item {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+  }
+
+  .settings__bird-img {
+    width: 200px;
+  }
+
+  .settings__btn {
+    padding: 5px;
+    font-size: 15px;
+  }
 }

@@ -1,28 +1,28 @@
 .highscores {
-  background-color: rgba(255, 255, 255, 0.797);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  max-width: 700px;
-  margin: 70px auto;
-  padding: 30px 0;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  margin: 40px 20px 0;
+  max-width: 600px;
+  padding: 30px;
   border-radius: 30px;
-  color: rgba(52, 51, 51, 0.862);
-  font-family: var(--secondary-font-family);
+  color: var(--main-color);
   text-align: center;
 }
 
 .highscores__header {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 30px;
-  text-shadow: 0 0 rgb(0, 0, 0);
-  color: rgb(75, 74, 74);
+  margin-bottom: 15px;
+  font-size: 23px;
+  font-family: var(--secondary-font-family);
+  text-shadow: var(--header-text-shadow);
+  color: var(--main-color);
+  text-transform: uppercase;
 }
 
 .highscores__scores-table .table__header {
-  text-shadow: 0 0 rgb(0, 0, 0);
-  color: rgb(73, 156, 224);
+  text-shadow: var(--header-text-shadow);
+  color: var(--table-header-color);
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 17px;
 }
 
 .highscores__scores-table .table__list {
@@ -33,20 +33,44 @@
 .highscores__scores-table .table__item {
   display: grid;
   grid-template-rows: 1fr;
-  gap: 2px;
-  grid-template-columns: 70% 30%;
+  gap: 7px;
+  grid-template-columns: 10% 60% 30%;
   margin: 10px 0;
+  font-size: 15px;
 }
 
-.highscores__scores-table .table__user-name {
-  border: 1px solid black;
-  border-radius: 5px;
-  font-weight: 500;
-}
-
+.highscores__scores-table .table__user-rank,
+.highscores__scores-table .table__user-name,
 .highscores__scores-table .table__user-record {
-  border: 1px solid black;
+  border: 2px solid var(--background-color);
   border-radius: 5px;
-  font-size: 20px;
+  box-shadow: var(--table-shadow);
+}
 
+@media (min-width: 600px) {
+  .highscores {
+    margin: 70px auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .highscores {
+    max-width: 800px;
+    margin: 70px auto;
+    padding: 60px;
+  }
+
+  .highscores__header {
+    margin-bottom: 25px;
+    font-size: 30px;
+  }
+
+  .highscores__scores-table .table__header {
+    font-size: 22px;
+  }
+
+  .highscores__scores-table .table__list {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }

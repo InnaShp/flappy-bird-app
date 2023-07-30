@@ -7,17 +7,17 @@ import { updatePipes } from './updatePipes.js';
 
 const header = document.querySelector('.header');
 const form = document.getElementById('name-form');
-const nameInput = document.querySelector('.user-name-input');
+const nameInput = document.querySelector('.form__user-name-input');
 
 const gameData = {
   bird: new Bird(localStorage.selectedBird),
   pipe: new Pipe(),
   user: null,
   isCollision: false,
-  background: document.querySelector('.background').getBoundingClientRect(),
-  scoreValue: document.querySelector('.score-val'),
-  scoreTitle: document.querySelector('.score-title'),
-  message: document.querySelector('.message'),
+  background: document.querySelector('.game__background').getBoundingClientRect(),
+  scoreValue: document.querySelector('.game__score-val'),
+  scoreTitle: document.querySelector('.game__score-title'),
+  message: document.querySelector('.game__message'),
   gameStatus: 'Start',
   moveSpeed: 3,
   currentScore: null,
@@ -41,7 +41,7 @@ function startGame() {
 startGame();
 function handleStartGame() {
   if (gameData.gameStatus != 'Play') {
-    document.querySelectorAll('.pipeSprite').forEach((e) => e.remove());
+    document.querySelectorAll('.game__pipeSprite').forEach((e) => e.remove());
     gameData.bird.startFlying();
     gameData.bird.flapWings()
     gameData.gameStatus = 'Play';

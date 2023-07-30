@@ -1,6 +1,6 @@
 class Bird {
   constructor(imgSrc) {
-    this.birdEl = document.querySelector('.bird');
+    this.birdEl = document.querySelector('.game__bird');
     this.img = document.getElementById('bird-1');
     this.imgSrcUp = imgSrc;
     this.imgSrcDown = imgSrc.replace('up', 'down');
