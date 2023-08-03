@@ -13,12 +13,25 @@ export function flyBird(data) {
       }
     }
   }
-  document.removeEventListener('keydown', handleKeyEvent);
+  function handleTouch() {
+    if (gameData.gameStatus === 'Play') {
+      gameData.soundFlap.play();
+      gameData.bird.flapWings();
+      gameData.bird.velocityY = -10;
+    }
+  }
+  function handleTouchEnd() {
+    if (gameData.gameStatus === 'Play') gameData.bird.stopFlappingWings();
+  }
+  
+  document.removeEventListener('keydown', handleKeyEvent); // контроль щодо дій користувача напр стрибок пташки та зупинка анмації при відпусканні клавіші
   document.removeEventListener('keyup', handleKeyEvent);
+  document.addEventListener('touchend', handleTouchEnd);
 
   if (data.gameStatus === 'Play') {
     document.addEventListener('keydown', handleKeyEvent);
     document.addEventListener('keyup', handleKeyEvent);
+    document.addEventListener('touchstart', handleTouch);
   }
   if (data.bird.rect.top <= 0 || data.bird.rect.bottom >= data.background.bottom) {
     if (data.gameStatus === 'Play') data.soundDie.play();
@@ -26,10 +39,7 @@ export function flyBird(data) {
     data.message.innerHTML = '<img src="../images/game-over.png" alt="Game over"><a href="#" id="restart">Click to restart</a>';
     data.bird.stopFlying();
     const restart = document.getElementById('restart');
-    restart.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.location.reload();
-    });
+    restart.addEventListener('click', () => window.location.reload());
   }
   if (data.gameStatus === 'End' && data.scoreValue.innerHTML > 0 && data.isCollision === false) handleGameOver(data);
 }

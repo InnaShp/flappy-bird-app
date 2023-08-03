@@ -5,7 +5,7 @@ class Bird {
     this.imgSrcUp = imgSrc;
     this.imgSrcDown = imgSrc.replace('up', 'down');
     this.rect  = this.birdEl.getBoundingClientRect();
-    this.velocityY = 0;
+    this.velocityY = 0; //початкова швидкість по вертикалі для відстеження зміни вертикальної швидкості обʼєкта 
     this.gravity = 0.5;
     this.element = document.querySelector('.game-wrapper');
   }
@@ -22,10 +22,10 @@ class Bird {
   stopFlying() {
     this.img.style.display = 'none'; 
   }
-  updateBirdPosition() {
-    this.velocityY += this.gravity;
-    this.birdEl.style.top = this.rect.top + this.velocityY + 'px';
-    this.rect = this.birdEl.getBoundingClientRect();
+  updateBirdPosition() { //оновлення позицій пташки з кожним кадром анімації
+    this.velocityY += this.gravity; //спуск пташки вниз через гравітацію
+    this.birdEl.style.top = this.rect.top + this.velocityY + 'px'; //оновлює позицію відносно швидкості руху
+    this.rect = this.birdEl.getBoundingClientRect(); //оновлює обʼєкт що містить дані про розташування пташки
   }
 }
 export default Bird;

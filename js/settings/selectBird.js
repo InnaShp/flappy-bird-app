@@ -26,5 +26,3 @@ selectBtns.forEach((btn) => {
     }
   }
 });
-
-
