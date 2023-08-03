@@ -1,10 +1,10 @@
 document.addEventListener("partialsLoaded", () => {
   import('./burger-menu.js');
-  import('./game.js');
-  import('./bird.js');
-  import('./pipe.js');
-  import('./move.js');
-  import('./flyBird.js');
-  import('./updatePipes.js');
-  import('./user.js');
+  import('./main-game/game.js');
+  import('./main-game/bird.js');
+  import('./main-game/pipe.js');
+  import('./main-game/move.js');
+  import('./main-game/flyBird.js');
+  import('./main-game/updatePipes.js');
+  import('./main-game/user.js');
 });

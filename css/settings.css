@@ -34,6 +34,11 @@
 
 .settings__bird-img {
   width: 110px;
+  transition: all 250ms ease-in;
+}
+
+.settings__bird-img:hover {
+  width: 120px;
 }
 
 .settings__btn {
@@ -76,6 +81,10 @@
     width: 140px;
   }
 
+  .settings__bird-img:hover {
+    width: 155px;
+  }
+
   .settings__btn {
     width: 100px;
     padding: 4px;
@@ -107,6 +116,10 @@
 
   .settings__bird-img {
     width: 200px;
+  }
+
+  .settings__bird-img:hover {
+    width: 215px;
   }
 
   .settings__btn {
