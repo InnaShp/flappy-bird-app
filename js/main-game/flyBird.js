@@ -24,14 +24,28 @@ export function flyBird(data) {
     if (data.gameStatus === 'Play') data.bird.stopFlappingWings();
   }
   
-  document.removeEventListener('keydown', handleKeyEvent); // контроль щодо дій користувача напр стрибок пташки та зупинка анмації при відпусканні клавіші
+  // document.removeEventListener('keydown', handleKeyEvent); // контроль щодо дій користувача напр стрибок пташки та зупинка анмації при відпусканні клавіші
+  // document.removeEventListener('keyup', handleKeyEvent);
+  // document.addEventListener('touchend', handleTouchEnd);
+
+  // if (data.gameStatus === 'Play') {
+  //   document.addEventListener('keydown', handleKeyEvent);
+  //   document.addEventListener('keyup', handleKeyEvent);
+  //   document.addEventListener('touchstart', handleTouch);
+  // }
+    
+  document.removeEventListener('keydown', handleKeyEvent);
   document.removeEventListener('keyup', handleKeyEvent);
-  document.addEventListener('touchend', handleTouchEnd);
+  document.removeEventListener('touchend', handleTouchEnd);
 
   if (data.gameStatus === 'Play') {
-    document.addEventListener('keydown', handleKeyEvent);
-    document.addEventListener('keyup', handleKeyEvent);
-    document.addEventListener('touchstart', handleTouch);
+    if (window.innerWidth > 1000) {
+      document.addEventListener('keydown', handleKeyEvent);
+      document.addEventListener('keyup', handleKeyEvent);
+    } else {
+      document.addEventListener('touchstart', handleTouch);
+      document.addEventListener('touchend', handleTouchEnd);
+    }
   }
   if (data.bird.rect.top <= 0 || data.bird.rect.bottom >= data.background.bottom) {
     if (data.gameStatus === 'Play') data.soundDie.play();
