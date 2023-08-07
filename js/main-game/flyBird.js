@@ -14,14 +14,14 @@ export function flyBird(data) {
     }
   }
   function handleTouch() {
-    if (gameData.gameStatus === 'Play') {
-      gameData.soundFlap.play();
-      gameData.bird.flapWings();
-      gameData.bird.velocityY = -10;
+    if (data.gameStatus === 'Play') {
+      data.soundFlap.play();
+      data.bird.flapWings();
+      data.bird.velocityY = -10;
     }
   }
   function handleTouchEnd() {
-    if (gameData.gameStatus === 'Play') gameData.bird.stopFlappingWings();
+    if (data.gameStatus === 'Play') data.bird.stopFlappingWings();
   }
   
   document.removeEventListener('keydown', handleKeyEvent); // контроль щодо дій користувача напр стрибок пташки та зупинка анмації при відпусканні клавіші
