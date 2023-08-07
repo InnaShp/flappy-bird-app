@@ -50,8 +50,7 @@ img {
 .container {
   background-image: url('../images/menu-background.png');
   background-size: 170% 100%;
-  background-repeat: repeat-y;
-  height: 100vh;
+  height: 100%;
 }
 
 @media (min-width: 1000px) {

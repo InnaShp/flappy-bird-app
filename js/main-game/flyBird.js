@@ -38,7 +38,6 @@ export function flyBird(data) {
     
   document.removeEventListener('keydown', handleKeyEvent);
   document.removeEventListener('keyup', handleKeyEvent);
-  document.removeEventListener('touchend', handleTouchEnd);
 
   if (data.gameStatus === 'Play') {
     if (window.innerWidth > 1000) {
