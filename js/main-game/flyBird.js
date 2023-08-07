@@ -14,10 +14,12 @@ export function flyBird(data) {
     }
   }
   function handleTouch() {
-    if (data.gameStatus === 'Play') {
-      data.soundFlap.play();
-      data.bird.flapWings();
-      data.bird.velocityY = -10;
+    if (document.activeElement.tagName.toLowerCase() !== 'input') {
+      if (data.gameStatus === 'Play') {
+        data.soundFlap.play();
+        data.bird.flapWings();
+        data.bird.velocityY = -10;
+      }
     }
   }
   function handleTouchEnd() {
