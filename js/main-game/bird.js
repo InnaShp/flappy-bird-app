@@ -6,7 +6,7 @@ class Bird {
     this.imgSrcDown = imgSrc.replace('up', 'down');
     this.rect  = this.birdEl.getBoundingClientRect();
     this.velocityY = 0; //початкова швидкість по вертикалі для відстеження зміни вертикальної швидкості обʼєкта 
-    this.gravity = 0.5;
+    this.gravity = 0;
     this.element = document.querySelector('.game-wrapper');
   }
   flapWings() {
@@ -18,6 +18,7 @@ class Bird {
   startFlying() {
     this.img.style.display = 'block';
     this.birdEl.style.top = '40vh';
+    
   }
   stopFlying() {
     this.img.style.display = 'none'; 
