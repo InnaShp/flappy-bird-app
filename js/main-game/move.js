@@ -27,12 +27,14 @@ export function checkBirdPipeCollision(data) {
           && pipeSpriteProps.right + data.moveSpeed >= birdProps.left
           && element.increaseScore === '1') {
           if (data.pipe.gap > minPipeGap) data.pipe.gap -= 1;
-          data.soundPoint.play();
-          data.scoreValue.innerHTML = + data.scoreValue.innerHTML + 1;
+          // Перевірка на нові очки перед відтворенням звуку
+          const currentScore = parseInt(data.scoreValue.innerHTML);
+          const newScore = currentScore + 1; 
+          data.scoreValue.innerHTML = newScore;
+          // Відтворення звуку, якщо є нові очки
+          if (newScore > currentScore) data.soundPoint.play(); 
         }
-        if (window.innerWidth <= 1000) {
-          element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px'
-        } 
+        element.style.left = pipeSpriteProps.left - data.moveSpeed + 'px';
       }
     }
   });
@@ -47,3 +49,4 @@ export function handleGameOver(data) {
     isGameOver = true;
   }
 }
+
