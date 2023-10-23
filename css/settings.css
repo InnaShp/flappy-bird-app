@@ -52,6 +52,7 @@
   cursor: pointer;
   transition: all 200ms ease;
   background-color: var(--light-color);
+  color: var(--main-color);
 }
 
 .settings__btn:hover {

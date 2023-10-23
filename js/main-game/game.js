@@ -8,7 +8,6 @@ import { updatePipes } from './updatePipes.js';
 const header = document.querySelector('.header');
 const form = document.getElementById('name-form');
 const nameInput = document.querySelector('.form__user-name-input');
-
 const gameData = {
   bird: new Bird(localStorage.selectedBird),
   pipe: new Pipe(),
@@ -26,13 +25,16 @@ const gameData = {
   soundFlap: new Audio('sounds/flap.mp3'),
   soundHitPipe: new Audio('sounds/hit-pipe.mp3'),
 }
+const framesPerSecond = 60;
 
 function gameLoop() {
   if (gameData.gameStatus === 'Play') {
-    checkBirdPipeCollision(gameData);
-    flyBird(gameData);
-    updatePipes(gameData);
-    requestAnimationFrame(gameLoop);
+    setTimeout(function () {
+      requestAnimationFrame(gameLoop);
+      checkBirdPipeCollision(gameData);
+      flyBird(gameData);
+      updatePipes(gameData);
+    }, 1000 / framesPerSecond);
   }
 }
 function handleStartGame() {
@@ -44,7 +46,9 @@ function handleStartGame() {
     gameData.message.innerHTML = '';
     gameData.scoreTitle.innerHTML = 'Score : ';
     gameData.scoreValue.innerHTML = '0';
-    requestAnimationFrame(gameLoop);
+    setTimeout(function () {
+      requestAnimationFrame(gameLoop);
+    }, 1000 / framesPerSecond);
   }
 }
 function startGame() {
