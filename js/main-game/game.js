@@ -27,6 +27,26 @@ const gameData = {
   soundHitPipe: new Audio('sounds/hit-pipe.mp3'),
 }
 
+function gameLoop() {
+  if (gameData.gameStatus === 'Play') {
+    checkBirdPipeCollision(gameData);
+    flyBird(gameData);
+    updatePipes(gameData);
+    requestAnimationFrame(gameLoop);
+  }
+}
+function handleStartGame() {
+  if (gameData.gameStatus !== 'Play') {
+    document.querySelectorAll('.game__pipeSprite').forEach((e) => e.remove());
+    gameData.bird.startFlying();
+    gameData.bird.flapWings()
+    gameData.gameStatus = 'Play';
+    gameData.message.innerHTML = '';
+    gameData.scoreTitle.innerHTML = 'Score : ';
+    gameData.scoreValue.innerHTML = '0';
+    requestAnimationFrame(gameLoop);
+  }
+}
 function startGame() {
   gameData.bird.stopFlying();
   header.classList.toggle('fixed');
@@ -39,23 +59,3 @@ function startGame() {
   });
 }
 startGame();
-function handleStartGame() {
-  if (gameData.gameStatus != 'Play') {
-    document.querySelectorAll('.game__pipeSprite').forEach((e) => e.remove());
-    gameData.bird.startFlying();
-    gameData.bird.flapWings()
-    gameData.gameStatus = 'Play';
-    gameData.message.innerHTML = '';
-    gameData.scoreTitle.innerHTML = 'Score : ';
-    gameData.scoreValue.innerHTML = '0';
-    requestAnimationFrame(gameLoop);
-  }
-}
-function gameLoop() {
-  if (gameData.gameStatus === 'Play') {
-    checkBirdPipeCollision(gameData);
-    flyBird(gameData);
-    updatePipes(gameData);
-    requestAnimationFrame(gameLoop);
-  }
-}
